@@ -1,0 +1,18 @@
+# config.yaml
+general_params:
+  shoulder_camera_image_size: 512  # 必须与图像预处理尺寸一致
+  video_save_path: "./trajectories"  # 轨迹视频保存路径
+
+task_proposer_params:
+  reuse_task_statistics: false  # 是否复用历史任务统计
+
+success_detector_params:
+  which_vlm: "gpt4v"  # 可选项: "gpt4v" 或 "cogvlm"
+
+##cogvlm_server_params:
+  ##cogvlm_server_ip: "localhost"  # CogVLM服务IP
+  ##cogvlm_server_port: 5000       # CogVLM服务端口
+
+openai_params:
+  api_base: "https://api.openai.com/v1"  # OpenAI API端点
+  timeout: 10000000                         # 请求超时时间
