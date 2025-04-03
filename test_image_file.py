@@ -12,7 +12,7 @@ def load_and_preprocess_image(image_path: str, target_size: int) -> np.ndarray:
     if img is None:
         raise ValueError(f"无法读取图像文件: {image_path}")
     
-    # 转换为RGB格式（与原代码中的观察结果一致）
+    # 转换为RGB格式
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     
     # 确保尺寸匹配配置要求
@@ -35,7 +35,7 @@ def main():
                        help='配置文件路径（默认：config.yaml）')
     args = parser.parse_args()
 
-    # 初始化系统组件
+    # 加载配置文件
     config = load_config(args.config)
     predictor = SuccessPredictor(config)
     
@@ -43,14 +43,14 @@ def main():
     target_size = config["general_params"]["shoulder_camera_image_size"]
     test_image = load_and_preprocess_image(args.image_path, target_size)
     
-    # 执行预测（完全保持原系统调用方式）
+    # 执行预测
     success = predictor.predict_outcome(
         image=test_image,
         task_str=args.task,
         log_metrics=True
     )
     
-    # 输出结果（与原始系统日志格式一致）
+    # 输出结果
     print("\n" + "="*50)
     print(f"Task: {args.task}")
     print(f"Image: {args.image_path}")
