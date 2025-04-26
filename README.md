@@ -1,4 +1,4 @@
-# EmbodiedIntellectually_SuccessDetection
+# SuccessDetection
 
 这里 `test_image_file.py` 是一个便于处理图象格式的代码，主要是为了转化图像格式和尺寸
 
